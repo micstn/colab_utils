@@ -1,11 +1,12 @@
 # COLABORATORY SETUP SNIPPET
+from __future__ import print_function
+
 import sys
 if sys.version_info[0] < 3:
     from StringIO import StringIO
 else:
     from io import StringIO
 
-from __future__ import print_function
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
