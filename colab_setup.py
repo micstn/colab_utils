@@ -1,7 +1,5 @@
 # COLABORATORY SETUP SNIPPET
 
-%matplotlib inline
-
 import sys
 if sys.version_info[0] < 3:
     from StringIO import StringIO
