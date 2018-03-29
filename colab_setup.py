@@ -6,9 +6,13 @@ if sys.version_info[0] < 3:
 else:
     from io import StringIO
 
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
+# https://keras.io/
+os.system("pip install -q keras")
 import keras
 
 # http://pytorch.org/
@@ -16,10 +20,12 @@ from os import path
 from wheel.pep425tags import get_abbr_impl, get_impl_ver, get_abi_tag
 platform = '{}{}-{}'.format(get_abbr_impl(), get_impl_ver(), get_abi_tag())
 accelerator = 'cu80' if path.exists('/opt/bin/nvidia-smi') else 'cpu'
+os.system("pip install -q http://download.pytorch.org/whl/{accelerator}/torch-0.3.0.post4-{platform}-linux_x86_64.whl torchvision")
 import torch
 
 # Install the PyDrive wrapper & import libraries.
 # This only needs to be done once per notebook.
+os.system("pip install -U -q PyDrive")
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from google.colab import auth
