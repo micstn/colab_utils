@@ -30,13 +30,14 @@ def colab_auth():
     gauth.credentials = GoogleCredentials.get_application_default()
     drive = GoogleDrive(gauth)
 
+# Read csv from google drive to pandas dataframe
 def get_gdrive_csv(file_id):
-  # colaboratory - read csv from google drive to pandas dataframe
   get_file = drive.CreateFile({'id': file_id})
   file_content = get_file.GetContentString()
   df = pd.read_csv(StringIO(file_content), sep="\t")
   return df
 
+# Write csv to google drive
 def save_gdrive_csv():
   uploaded = drive.CreateFile({'title': 'Sample file.txt'})
   uploaded.SetContentString('Sample upload file content')
