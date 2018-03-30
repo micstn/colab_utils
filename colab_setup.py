@@ -39,5 +39,7 @@ def colab_mount_gdrive():
     os.system("google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret} < /dev/null 2>&1 | grep URL")
     vcode = getpass.getpass()
     os.system("echo {vcode} | google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret}")
+    os.system("mkdir -p drive")
+    os.system("google-drive-ocamlfuse drive")
 
 
